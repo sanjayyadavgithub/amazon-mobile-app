@@ -119,9 +119,11 @@ app.post("/login", async (req, res) => {
 });
 
 app.post("/addresses", async (req, res) => {
+  console.log("msg",req.body)
   try {
     const { userId, address } = req.body;
     const user = await User.findById(userId);
+    console.log("msg",req.body,user)
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
@@ -133,9 +135,11 @@ app.post("/addresses", async (req, res) => {
   }
 });
 app.get("/addresses/:userId", async (req, res) => {
+  console.log("msg",req.params)
   try {
     const userId = req.params.userId;
     const user = await User.findById(userId);
+    console.log("msg",req.params,user)
     if (!user) {
       return res.status(404).json({ message: "User not found" });
     }
