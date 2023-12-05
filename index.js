@@ -52,6 +52,10 @@ const sendVerificationEmail = async (email, verificationToken) => {
   }
 };
 
+app.get("/",(req,res)=>{
+  res.send("Successfully");
+})
+
 app.post("/register", async (req, res) => {
   try {
     const { name, email, password } = req.body;
